@@ -1,0 +1,18 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>icons/fica.png</file>
+    <file>icons/z1.png</file>
+    <file>icons/z2.png</file>
+    <file>icons/z3.png</file>
+    <file>icons/z4.png</file>
+    <file>icons/z5.png</file>
+    <file>icons/z6.png</file>
+    <file>icons/z7.png</file>
+    <file>icons/z8.png</file>
+    <file>icons/z9.png</file>
+    <file>icons/z10.png</file>
+    <file>icons/z11.png</file>
+    <file>icons/z12.png</file>
+    <file>icons/z13.ico</file>
+</qresource>
+</RCC>
