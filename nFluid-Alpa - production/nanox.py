@@ -1,5 +1,18 @@
 import os
 import sys
+import mplwidget3
+import mplwidget4
+import mplwidget5
+import mplwidget6
+import qtconsole
+import mpl_toolkits
+import pandas as pd
+from sklearn.metrics import r2_score
+import numpy as np
+import io
+import icons_rc
+from io import StringIO
+import PyQt5
 import pandas as pd
 from sklearn.metrics import r2_score
 import numpy as np
@@ -272,7 +285,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
          b2 = float(model6.data(v1))
          b3 = float(model6.data(v2))
          b4 = float(model6.data(v3))
-
+         self.tex.setText("")
          self.tex.append('/****************ANSYS FLUENT UDF FOR ' + (con) + +1 * x + 'NANOFLUID****************/')
          self.tex.append('/****Compile before starting the Fluent****/')
          self.tex.append('#include "udf.h"')
@@ -350,13 +363,13 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.MplWdiget9.canvas.A3.clear()
             self.MplWdiget9.canvas.A4.clear()
 
-            self.MplWdiget9.canvas.A.set_xlabel('phi/T')
+            self.MplWdiget9.canvas.A.set_xlabel('\u03A6/T')
             self.MplWdiget9.canvas.A.set_ylabel('Density')
-            self.MplWdiget9.canvas.A2.set_xlabel('phi/T')
+            self.MplWdiget9.canvas.A2.set_xlabel('\u03A6/T')
             self.MplWdiget9.canvas.A2.set_ylabel('Thermal Conductivity')
-            self.MplWdiget9.canvas.A3.set_xlabel('phi/T')
+            self.MplWdiget9.canvas.A3.set_xlabel('\u03A6/T')
             self.MplWdiget9.canvas.A3.set_ylabel('Specific Heat')
-            self.MplWdiget9.canvas.A4.set_xlabel('phi/T')
+            self.MplWdiget9.canvas.A4.set_xlabel('\u03A6/T')
             self.MplWdiget9.canvas.A4.set_ylabel('Dynamic Viscocity')
 
             self.MplWdiget9.canvas.A.grid(True)
@@ -402,9 +415,9 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             c2 = np.polyfit(h7, h3, deg=4)
             c3 = np.polyfit(h7, h3, deg=5)
 
-            po = np.poly1d(c1,variable='(phi/T)')
-            po2 = np.poly1d(c2,variable='(phi/T)')
-            po3 = np.poly1d(c3,variable='(phi/T)')
+            po = np.poly1d(c1,variable='(\u03A6/T)')
+            po2 = np.poly1d(c2,variable='(\u03A6/T)')
+            po3 = np.poly1d(c3,variable='(\u03A6/T)')
 
             s1 = r2_score(h3, po(h7))
             s2 = r2_score(h3, po2(h7))
@@ -414,9 +427,9 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             d2 = np.polyfit(h7, h5, deg=4)
             d3 = np.polyfit(h7, h5, deg=5)
 
-            qo = np.poly1d(d1,variable='(phi/T)')
-            qo2 = np.poly1d(d2,variable='(phi/T)')
-            qo3 = np.poly1d(d3,variable='(phi/T)')
+            qo = np.poly1d(d1,variable='(\u03A6/T)')
+            qo2 = np.poly1d(d2,variable='(\u03A6/T)')
+            qo3 = np.poly1d(d3,variable='(\u03A6/T)')
 
             t1 = r2_score(h5, qo(h7))
             t2 = r2_score(h5, qo2(h7))
@@ -426,9 +439,9 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             e2 = np.polyfit(h7, h4, deg=4)
             e3 = np.polyfit(h7, h4, deg=5)
 
-            ro = np.poly1d(e1,variable='(phi/T)')
-            ro2 = np.poly1d(e2,variable='(phi/T)')
-            ro3 = np.poly1d(e3,variable='(phi/T)')
+            ro = np.poly1d(e1,variable='(\u03A6/T)')
+            ro2 = np.poly1d(e2,variable='(\u03A6/T)')
+            ro3 = np.poly1d(e3,variable='(\u03A6/T)')
 
             u1 = r2_score(h4, ro(h7))
             u2 = r2_score(h4, ro2(h7))
@@ -438,9 +451,9 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             f2 = np.polyfit(h7, h6, deg=4)
             f3 = np.polyfit(h7, h6, deg=5)
 
-            so = np.poly1d(f1,variable='(phi/T)')
-            so2 = np.poly1d(f2,variable='(phi/T)')
-            so3 = np.poly1d(f3,variable='(phi/T)')
+            so = np.poly1d(f1,variable='(\u03A6/T)')
+            so2 = np.poly1d(f2,variable='(\u03A6/T)')
+            so3 = np.poly1d(f3,variable='(\u03A6/T)')
 
             w1 = r2_score(h6, so(h7))
             w2 = r2_score(h6, so2(h7))
@@ -554,13 +567,13 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.MplWdiget9.canvas.A3.clear()
         self.MplWdiget9.canvas.A4.clear()
 
-        self.MplWdiget9.canvas.A.set_xlabel('phi/T')
+        self.MplWdiget9.canvas.A.set_xlabel('(\u03A6/T)')
         self.MplWdiget9.canvas.A.set_ylabel('Density')
-        self.MplWdiget9.canvas.A2.set_xlabel('phi/T')
+        self.MplWdiget9.canvas.A2.set_xlabel('(\u03A6/T)')
         self.MplWdiget9.canvas.A2.set_ylabel('Thermal Conductivity')
-        self.MplWdiget9.canvas.A3.set_xlabel('phi/T')
+        self.MplWdiget9.canvas.A3.set_xlabel('(\u03A6/T)')
         self.MplWdiget9.canvas.A3.set_ylabel('Specific Heat')
-        self.MplWdiget9.canvas.A4.set_xlabel('phi/T')
+        self.MplWdiget9.canvas.A4.set_xlabel('(\u03A6/T)')
         self.MplWdiget9.canvas.A4.set_ylabel('Dynamic Viscocity')
 
         self.MplWdiget9.canvas.A.grid(True)
@@ -653,21 +666,21 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ka2 = np.polyfit(x, x5, deg=2)
         ka3 = np.polyfit(x, x5, deg=3)
 
-        p = np.poly1d(ka)
-        p2 = np.poly1d(ka2)
-        p3 = np.poly1d(ka3)
+        p = np.poly1d(ka,variable="\u03A6")
+        p2 = np.poly1d(ka2,variable="\u03A6")
+        p3 = np.poly1d(ka3,variable="\u03A6")
 
-        pr = np.poly1d(sa)
-        pr2 = np.poly1d(sa2)
-        pr3 = np.poly1d(sa3)
+        pr = np.poly1d(sa,variable="\u03A6")
+        pr2 = np.poly1d(sa2,variable="\u03A6")
+        pr3 = np.poly1d(sa3,variable="\u03A6")
 
-        pri = np.poly1d(za)
-        pri2 = np.poly1d(za2)
-        pri3 = np.poly1d(za3)
+        pri = np.poly1d(za,variable="\u03A6")
+        pri2 = np.poly1d(za2,variable="\u03A6")
+        pri3 = np.poly1d(za3,variable="\u03A6")
 
-        prid  = np.poly1d(mo)
-        prid2 = np.poly1d(mo2)
-        prid3 = np.poly1d(mo3)
+        prid  = np.poly1d(mo,variable="\u03A6")
+        prid2 = np.poly1d(mo2,variable="\u03A6")
+        prid3 = np.poly1d(mo3,variable="\u03A6")
 
         sd=   r2_score(x2, prid(x)).__round__(3)
         sd1 = r2_score(x2, prid2(x)).__round__(3)
@@ -684,7 +697,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         q = r2_score(x5, p(x)).__round__(3)
         q1 = r2_score(x5, p2(x)).__round__(3)
         q2 = r2_score(x5, p3(x)).__round__(3)
-
+        self.log.setText("")
         self.log.append('|###############################Density Correlation################################|')
         self.log.append('|----Degreee----|---------r^2--------|')
         self.log.append('|1'+20*spa+'    |'+str(sd)+''+20*spa+'|')
@@ -1040,7 +1053,6 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tabWidget.setTabVisible(5, True)
         self.button3.setEnabled(True)
         self.button3.setVisible(True)
-
         te = (self.a1.text())
         con = str(te)
         k_p = float(self.v4.text())
@@ -1053,6 +1065,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         x3 = float(self.v7.text())
         k_w = 0.643
         x = ' '
+        self.tex.setText("")
         self.tex.append('/****************ANSYS FLUENT UDF FOR '+(con)+ +1*x+'NANOFLUID****************/')
         self.tex.append('/****Compile before starting the Fluent****/')
         self.tex.append('#include "udf.h"')

@@ -1,11 +1,13 @@
 # ------------------------------------------------- -----
 # -------------------- mplwidget.py --------------------
 # -------------------------------------------------- ----
+import matplotlib
 from PyQt5.QtWidgets import *
 
 from matplotlib.backends.backend_qt5agg import FigureCanvas
 
 from matplotlib.figure import Figure
+
 from matplotlib.backends.backend_qt5agg import (NavigationToolbar2QT as
                                                 NavigationToolbar)
 
